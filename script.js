@@ -190,5 +190,217 @@ let str1 = str.split(','); // split string with ,
     console.log(value);
 }));
 console.log(str1);
-let str2 = str1.join(','); // join array elements with space
+let str2 = str1.join(' $ '); // join array elements with space
 console.log(str2);
+
+// map = used to iterate over array make changes to all elements and return new array
+const arr6 = [1,2,3,4,5];
+var mapExample = arr6.map((value,index,array) => {  // value = element , index = index , array = array
+    console.log(value*value + " " + index + " " + array);
+    return value*value ;
+});
+console.log(mapExample); // return new array
+
+// forEach = used to iterate over array and perform some operation and give same array
+var forEachExamople = arr6.forEach((value,index,array) => {  // value = element , index = index , array = array
+    var res = value*value ;
+    console.log(res + " " + index);
+});
+console.log(forEachExamople); // return undefined
+
+let arr7 = [1,2,3,4,5];
+// for in
+for (const key in arr7) {
+    console.log(arr7[key] + " " + key);
+}
+// for of
+for (const iterator of arr7) {
+    console.log(iterator + " " + arr7.indexOf(iterator));
+}
+
+// multidimensional array
+//eg 1
+let arr8 = [[1,2,3],[4,5,6],[7,8,9]];
+console.log(arr8);
+console.log(arr8[0][0]);
+for (let i = 0; i < arr8.length; i++) {
+    for (let j = 0; j < arr8[i].length; j++) {
+        console.log(arr8[i][j]);
+    }
+}
+//eg 2
+let arr9 = [['shivam',1],['goel',2],['hello',3]];
+console.log(arr9);
+console.log(arr9[0][0]);
+for (let i = 0; i < arr9.length; i++) {
+    for (let j = 0; j < arr9[i].length; j++) {
+        console.log(arr9[i][j]);
+    }
+}
+// printing array elements using forEach
+arr9.forEach((value,index,array) => {
+    value.forEach((value1,index1,array1) => {
+        console.log(value1);
+    });
+});
+// printing array elements using for of
+for (const iterator of arr9) {
+    for (const iterator1 of iterator) {
+        console.log(iterator1);
+    }
+}
+// printing array elements using for in
+for (const key in arr9) {
+    for (const key1 in arr9[key]) {
+        console.log(arr9[key][key1]);
+    }
+}
+
+// copy of array into another array
+// shallow copy
+let arr10 = [1,2,3,4,5];
+let arr11 = arr10 ; // shallow copy
+console.log(arr10);
+console.log(arr11);
+arr10.push(6); 
+console.log(arr10); // both array will change
+console.log(arr11); // both array will change
+arr11.push(7);
+console.log(arr10); // both array will change
+console.log(arr11); // both array will change
+// deep copy
+// ... here is known as spread operator , it is used to copy array elements into another array
+let arr12 = [...arr10]; // deep copy
+console.log(arr10);
+console.log(arr12);
+arr10.push(8);
+console.log(arr10); // only arr10 will change
+console.log(arr12); // only arr10 will change
+arr12.push(9);
+console.log(arr10); // only arr12 will change
+console.log(arr12); // only arr12 will change
+// slice method
+let arr13 = arr10.slice(0);  // deep copy
+console.log(arr10);
+console.log(arr13);
+arr10.push(10);
+console.log(arr10); // only arr10 will change
+console.log(arr13); // only arr10 will change
+arr13.push(11);
+console.log(arr10); // only arr13 will change
+console.log(arr13); // only arr13 will change
+
+// destructuring
+let arr14 = [1,2,3,4,5];
+let [a1,b1,...c1] = arr14 ;
+console.log(a1);
+console.log(b1);
+console.log(c1); // here ...c1 is used to store rest of the elements in array
+console.log(c1[0]); 
+
+// objects
+let obj = {
+    name : "shivam",
+    // last name : "goel", // cant use space in key
+    "last name" : "goel",
+    age : 20,
+    city : "surat" ,
+    country : "india"
+}
+console.log(obj.name); // dot notation 
+console.log(obj["last name"]); // bracket notation , can use bot ' ' and " "
+// function and array in object
+let obj1 = {
+    name : "shivam",
+    age : 20,
+    city : "surat" ,
+    country : "india",
+    print : function() {
+        console.log("hello");
+    } ,
+    arr : [1,2,3,4,5] 
+}
+obj1.print();
+console.log(obj1.arr);
+console.log(obj1.arr[3]);
+console.log(obj1.arr[3] + " " + obj1.arr.indexOf(4));
+console.log(obj1);
+obj1.arr.push(6); // add element at end of array
+console.log(obj1.arr);
+obj1.key = "value"; // add key value pair in object
+console.log(obj1);
+let middle = "middle name" ;
+obj1[middle] = "vinit"; // add key value pair in object
+console.log(obj1); 
+for (const key in obj1) {  // print key value pair
+    console.log(key + " " + obj1[key]);
+}
+// object inbuilt methods
+console.log(Object.keys(obj1)); // return keys of object
+console.log(Object.values(obj1)); // return values of object
+console.log(Object.entries(obj1)); // return key value pair of object
+console.log(Object.assign(obj1)); // return copy of object
+console.log(Object.assign({},obj1)); // return copy of object
+console.log(Object.assign({"last Name" : "goel"},obj1)); // return copy of object with new key value pair
+console.log(Object.assign({"last Name" : "goel"},obj1,{"middle Name" : "vinit"})); // return copy of object with new key value pair
+
+// destructuring in object
+let obj2 = {
+    name1 : "shivam",
+    age1 : 20,
+    city1 : "surat" ,
+    country1 : "india"
+}
+let {name1,age1,...cityCountry} = obj2 ;
+console.log(name1);
+console.log(age1); 
+console.log(cityCountry); // here ...cityCountry is used to store rest of the elements in object
+console.log(cityCountry.city1);
+console.log(cityCountry.country1);
+
+// object in array
+let arr15 = [
+    {
+        name : "shivam",
+        age : 20,
+        city : "surat" ,
+        country : "india"
+    },
+    {
+        name : "goel",
+        age : 20,
+        city : "surat" ,
+        country : "india"
+    }
+]
+console.log(arr15);
+console.log(arr15[0]);
+console.log(arr15[0].name);
+for (const key in arr15) {
+    console.log(arr15[key]);
+}
+for (const iterator of arr15) {
+    console.log(iterator);
+}
+
+// destructuring in array of object
+let arr16 = [
+    {
+        name : "shivam",
+        age : 20,
+        city : "surat" ,
+        country : "india"
+    },
+    {
+        name : "goel",
+        age : 20,
+        city : "surat" ,
+        country : "india"
+    }
+]
+let [{name: name2,age: age2,...rest},...rest1] = arr16 ;
+console.log(name2);
+console.log(age2);
+console.log(rest);
+console.log(rest1);
+console.log(rest1[0].name); 
