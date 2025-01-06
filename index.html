@@ -5,9 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>practice of js</title>
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      #container {
+        width: 400px;
+        height: 400px;
+        border: 2px solid black;
+        border-radius: 10px;
+        background-color: aqua;
+        position: relative;
+      }
+      #inside {
+        width: 50px;
+        height: 50px;
+        border: 2px solid red;
+        border-radius: 10px;
+        background-color: black;
+        position: absolute;
+      }
+    </style>
   </head>
   <body>
-    <div>
+    <!-- <div>
       <h1>Names</h1>
       <ul id="names">
         <li>shivam</li>
@@ -18,7 +36,38 @@
         <li>Jack</li>
       </ul>
     </div>
+    <div>
+      <h2>Numbers<span style="display: none"> 3 4 5 </span></h2>
+    </div>
+    <div
+      class="shivam"
+      style="background-color: aqua; color: black; border: 1px solid black"
+    >
+      Text to handwriting converter is a free artificial intelligence-based
+      human handwriting converter that easily converts your computer text to
+      human handwriting text.
+    </div>
+    <div id="abc" about="heloooo"></div> -->
 
-    <script src="script.js"></script>
+    <div id="container">
+      <div id="inside"></div>
+    </div>
+    <p><button onclick="myMove()">Click</button></p>
+    <script src="script.js">
+      function myMove() {
+        let pos = 0 ;
+        const ele = document.getElementById('inside');
+        const id = setInterval(frame, 350);
+        function frame() {
+          if(pos == 350){
+            clearInterval(id);
+          }else{
+            pos++;
+            ele.style.top = pos + 'px';
+            ele.style.left = pos + 'px';
+          }
+        }
+      }
+    </script>
   </body>
 </html>

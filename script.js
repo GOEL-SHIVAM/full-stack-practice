@@ -503,3 +503,116 @@ var replace1 = document.querySelector("ul"); // select ul element
 var li2 = document.createElement("li");  // create element
 li2.textContent = "new element"; // add text to element
 replace1.replaceChild(li2,document.querySelector("li")); // replace element
+
+// 8. parent node
+// eg1
+var parent1 = document.querySelector("li");
+var p1 = parent1.parentNode;
+console.log(p1);
+// eg 2
+var parent2 = document.querySelector("html"); 
+var p2 = parent2.parentNode; // will never give null 
+console.log(p2); 
+
+// 9. previousSibling - return previous sibling node
+var previousSibling = document.querySelector("li");
+var ps = previousSibling.previousSibling;
+console.log(ps); // return text node
+
+// 10. nextSibling - return next sibling node
+var nextSibling = document.querySelector("li");
+var ns = nextSibling.nextSibling;
+console.log(ns); // return text node
+
+// 11. firstChild - return first child node
+var firstChild = document.querySelector("ul");
+var fc = firstChild.firstChild;
+console.log(fc); // return text node
+
+// 12. lastChild - return last child node
+var lastChild = document.querySelector("ul");
+var lc = lastChild.lastChild;
+console.log(lc); // return text node
+
+// 13. innerHTML - return inner html of element
+var innerHTML = document.querySelector("li");
+innerHTML.innerHTML += "<b> new element</b>"; // change inner html of element
+console.log(innerHTML.innerHTML);
+
+// 14. outerHTML - return outer html of element
+var outerHTML = document.querySelector("li");
+outerHTML.outerHTML = "<b>new element</b>"; // change outer html of element
+console.log(outerHTML.outerHTML);
+// so we can see that after using outerhtml element is removed as list(li) and got replaced by b tag 
+var child1 = document.querySelector("ul");
+var c11 = child1.children;
+console.log(c11)
+// to get back as list we have to write it in li tag again
+var outerHTML1 = document.querySelector("li");
+outerHTML1.outerHTML = "<li><b>new element</b></li>"; // change outer html of element
+console.log(outerHTML1.outerHTML);
+var child1 = document.querySelector("ul");
+var c11 = child1.children;
+console.log(c11)
+
+// 15. textContent - return text content of element
+var textContent = document.querySelector("h2").textContent;
+console.log(textContent); // will give all text irrespective of being displayed on screen or not 
+
+// 16. innerText - return inner text of element
+var innerText = document.querySelector("h2").innerText;
+console.log(innerText); // will give only text which is displayed on screen
+
+// 17. insertAdjacentElement - add element at specific position
+var insertAdjacentElement = document.querySelector(".shivam");
+var newE = document.createElement("div");
+newE.textContent = "new element of insertAdjacentElement ";
+insertAdjacentElement.insertAdjacentElement("beforebegin",newE); // add element before element
+insertAdjacentElement.insertAdjacentElement("afterbegin",newE); // add element at start of element
+insertAdjacentElement.insertAdjacentElement("beforeend",newE); // add element at end of element
+insertAdjacentElement.insertAdjacentElement("afterend",newE); // add element after element
+
+// 18. insertAdjacentHTML - add html at specific position
+var insertAdjacentHTML = document.querySelector(".shivam");
+insertAdjacentHTML.insertAdjacentHTML("beforebegin","<div><b>new element</b></div>"); // add html before element
+insertAdjacentHTML.insertAdjacentHTML("afterbegin","<div><b>new element</b></div>"); // add html at start of element
+insertAdjacentHTML.insertAdjacentHTML("beforeend","<div><b>new element</b></div>"); // add html at end of element
+insertAdjacentHTML.insertAdjacentHTML("afterend","<div><b>new element</b></div>"); // add html after element
+
+19. // styling
+document.body.style.backgroundColor = "red"; // change background color of body
+document.body.style.color = "white"; // change color of body
+document.body.style.fontSize = "20px"; // change font size of body
+document.body.style.fontFamily = "Arial"; // change font family of body
+document.body.style.padding = "20px"; // change padding of body
+document.body.style.margin = "20px"; // change margin of body
+document.body.style.border = "1px solid black"; // change border of body
+document.body.style.textAlign = "center"; // change text align of body
+document.body.style.display = "flex"; // change display of body
+document.body.style.justifyContent = "center"; // change justify content of body
+document.body.style.alignItems = "center"; // change align items of body
+document.body.style.flexDirection = "column"; // change flex direction of body
+document.body.style.flexWrap = "wrap"; // change flex wrap of body
+document.body.style.flex = "1"; // change flex of body
+document.body.style.order = "1"; // change order of body
+document.body.style.flexGrow = "1"; // change flex grow of body
+document.body.style.flexShrink = "1"; // change flex shrink of body
+document.body.style.flexBasis = "100px"; // change flex basis of body
+document.body.style.alignSelf = "center"; // change align self of body
+document.body.style.position = "relative"; // change position of body 
+document.body.style.top = "50px"; // change top of body
+document.body.style.left = "50px"; // change left of body
+document.body.style.right = "50px"; // change right of body
+document.body.style.bottom = "50px"; // change bottom of body
+
+// 20. get and set attribute
+let abc = document.querySelector("#abc");
+console.log(abc.getAttribute("about")); // get about attribute
+console.log(abc.getAttribute("class")); // get class attribute
+abc.setAttribute("class","shivam"); // set class attribute
+console.log(abc.getAttribute("class")); // get class attribute
+console.log(abc.outerHTML); // get outer html of element
+for (const att of abc.attributes) {
+  console.log(att.name + " " + att.value); // get all attributes of element
+}
+
