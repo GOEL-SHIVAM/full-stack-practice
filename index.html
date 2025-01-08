@@ -6,7 +6,8 @@
     <title>practice of js</title>
     <link rel="stylesheet" href="styles.css" />
     <style>
-      #container {
+      /* styles for onClick */
+      /* #container {
         width: 400px;
         height: 400px;
         border: 2px solid black;
@@ -21,10 +22,78 @@
         border-radius: 10px;
         background-color: black;
         position: absolute;
+      } */
+
+      /* styles for onmouseover, onmouseout, onmousedown, onmouseup */
+      /* #mydiv {
+        width: 100px;
+        height: 100px;
+        background-color: coral;
+        border: 2px solid black;
+        margin: 10px 0;
+      } */
+
+      /* styles for addEventListener */
+      /* #addLis {
+        width: 100px;
+        height: 100px;
+        background-color: coral;
+        border: 2px solid black;
+        margin: 10px 0;
+      } */
+
+      /* styles for bubbling */
+      /* body {
+        padding: 20px;
+        background-color: aqua;
       }
+      div {
+        padding: 20px;
+        background-color: red;
+        width: max-content;
+      }
+      span {
+        padding: 20px;
+        background-color: yellow;
+        display: block;
+      } */
+
+      /* styles for event delegation */
+      /* body {
+        padding: 20px;
+        background-color: aqua;
+      }
+      div {
+        padding: 20px;
+        background-color: red;
+        width: max-content;
+      }
+      span {
+        padding: 20px;
+        background-color: yellow;
+        display: block;
+      } */
+
+      /* styles for dimension */
+      /* body {
+        padding: 20px;
+        background-color: aqua;
+      }
+      div {
+        padding: 20px;
+        background-color: red;
+        width: max-content;
+      }
+      span {
+        padding: 20px;
+        background-color: yellow;
+        display: block;
+      } */
     </style>
   </head>
+  
   <body>
+    <!-- this div was for practice of js in script.js -->
     <!-- <div>
       <h1>Names</h1>
       <ul id="names">
@@ -49,25 +118,169 @@
     </div>
     <div id="abc" about="heloooo"></div> -->
 
-    <div id="container">
+    <!-- this div was for onclick in js -->
+    <!-- <div id="container">
       <div id="inside"></div>
     </div>
-    <p><button onclick="myMove()">Click</button></p>
-    <script src="script.js">
+    <p><button onclick="myMove()">Click</button></p> -->
+
+    <!--  this div was for onmouseover, onmouseout, onmousedown, onmouseup in js -->
+    <!-- <div
+      id="mydiv"
+      onmouseover="onMouseOver()"
+      onmouseout="onMouseOut(this)"
+    ></div>
+    <br />
+    <button
+      onclick="changeColor()"
+      onmousedown="changeColorDown()"
+      onmouseup="changeColorUp()"
+    >
+      Change Color
+    </button> -->
+
+    <!-- this div is for addEventListener in js -->
+    <!-- <div id="addLis"></div>
+    <br />
+    <button id="btn">Click</button> -->
+
+    <!-- this div is for windows location -->
+    <!-- <div id="location"></div> -->
+
+    <!-- this div is for bubbling -->
+    <!-- <div>
+      <span>
+        <button>click me</button>
+      </span>
+    </div> -->
+
+    <!-- this div is for event delegation -->
+    <!-- <div>
+      <span>
+        <button>click me</button>
+      </span>
+    </div> -->
+
+    <!-- this div is for dimension -->
+    <!-- <div>
+      <span>
+        <button>click me</button>
+      </span>
+    </div> -->
+
+    <!-- JS SECTION -->
+
+    <!-- script for onclick -->
+    <!-- <script>
       function myMove() {
         let pos = 0 ;
         const ele = document.getElementById('inside');
-        const id = setInterval(frame, 350);
+        const id = setInterval(frame,10);
         function frame() {
-          if(pos == 350){
+          if(pos == 350) {
             clearInterval(id);
-          }else{
-            pos++;
-            ele.style.top = pos + 'px';
-            ele.style.left = pos + 'px';
           }
+          pos++ ;
+          ele.style.top = pos + 'px';
+          ele.style.left = pos++ + 'px';
         }
       }
-    </script>
+    </script> -->
+
+    <!-- script for onmouseover, onmouseout, onmousedown, onmouseup -->
+    <!-- <script>
+      function changeColor() {
+        const ele = document.getElementById("mydiv");
+        ele.style.backgroundColor = "yellow";
+      }
+      function onMouseOver() {
+        const ele = document.getElementById("mydiv");
+        ele.style.backgroundColor = "green";
+      }
+      function onMouseOut(div) {
+        // const ele = document.getElementById('mydiv'); // can directly use "this" in function parameter
+        div.style.backgroundColor = "pink";
+      }
+      function changeColorDown() {
+        const ele = document.getElementById("mydiv");
+        ele.style.backgroundColor = "red";
+      }
+      function changeColorUp() {
+        const ele = document.getElementById("mydiv");
+        ele.style.backgroundColor = "blue"; // here onclick will get priority if it is also used
+      }
+    </script> -->
+
+    <!-- script for addEventListener -->
+    <!-- <script>
+      document.getElementById("btn").addEventListener("click", func);
+      function func() {
+        const ele = document.getElementById("addLis");
+        ele.style.backgroundColor = "red";
+        ele.style.width = "200px";
+        ele.style.height = "200px";
+      }
+    </script> -->
+
+    <!-- script for windows location -->
+    <!-- <script>
+      document.getElementById("location").innerHTML = window.location.href;
+      document.getElementById("location").innerHTML = window.location.hostname;
+      document.getElementById("location").innerHTML = window.location.pathname;
+      document.getElementById("location").innerHTML = window.location.protocol;
+      // document.getElementById("location").innerHTML = window.location.assign("https://www.linkedin.com/in/shivamgoel612/");
+    </script> -->
+
+    <!-- 3 types of popup  -->
+    <!-- <script>
+      alert("Hello World");
+      prompt("Enter your name", "shivam");
+      confirm("Are you sure you want to delete this?");
+    </script> -->
+
+    <!-- script for bubbling -->
+    <!-- <script>
+      document.querySelector("button").addEventListener("click", () => {
+        alert("Button clicked");
+      });
+      document.querySelector("span").addEventListener("click", (event) => {
+        alert("Span clicked");
+        event.stopPropagation();
+      });
+      document.querySelector("div").addEventListener("click", () => {
+        alert("Div clicked"); // this will not work because of event.stopPropagation()
+      });
+    </script> -->
+
+    <!-- script for event delegation -->
+    <!-- <script>
+      document.querySelector("div").addEventListener("click", (event) => {
+        if (event.target.tagName === "BUTTON") {
+          alert("Button clicked");
+        } else if (event.target.tagName === "SPAN") {
+          alert("Span clicked");
+        } else {
+          alert("Div clicked");
+        }
+      });
+    </script> -->
+
+    <!-- script for dimension -->
+    <!-- <script>
+      const ele = document.querySelector("span");
+      console.log(ele.offsetWidth);
+      console.log(ele.offsetHeight);
+      console.log(ele.clientWidth);
+      console.log(ele.clientHeight);
+      console.log(ele.scrollWidth);
+      console.log(ele.scrollHeight);
+      console.log(ele.getBoundingClientRect());
+      console.log(ele.offsetTop);
+      console.log(ele.offsetLeft);
+      console.log(ele.offsetParent);
+      console.log(ele.clientTop);
+      console.log(ele.clientLeft);
+    </script> -->
+    <script src="script.js"></script>
   </body>
 </html>
