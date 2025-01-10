@@ -433,7 +433,7 @@ console.log(domeg5);
 var domeg6 = document.querySelectorAll(".hero"); // return all elements
 console.log(domeg6);
 
-// DOM TRAVERSAL  
+// DOM TRAVERSAL
 
 // 1. parentElement - return parent element
 var parent = document.querySelector("li");
@@ -454,32 +454,35 @@ console.log(cn1);
 
 // 4. siblings
 console.log(document.querySelector(".hero").previousElementSibling); // return previous sibling element
-console.log(document.querySelector(".hero").previousElementSibling.previousElementSibling); // return 2nd previous sibling element
+console.log(
+  document.querySelector(".hero").previousElementSibling.previousElementSibling
+); // return 2nd previous sibling element
 console.log(document.querySelector(".hero").nextElementSibling); // return next sibling element
-console.log(document.querySelector(".hero").nextElementSibling.nextElementSibling); // return 2nd next sibling element
+console.log(
+  document.querySelector(".hero").nextElementSibling.nextElementSibling
+); // return 2nd next sibling element
 
 var domeg7 = document.querySelector(".hero");
-if (domeg7.previousElementSibling.previousElementSibling==null) {
+if (domeg7.previousElementSibling.previousElementSibling == null) {
   console.log("no 2nd previous sibling");
-}
-else{
+} else {
   console.log(domeg7.previousElementSibling.previousElementSibling);
 }
 
 var domeg8 = document.querySelectorAll(".hero");
 domeg8.forEach((value) => {
   console.log(value.previousElementSibling.previousElementSibling);
-})
+});
 
 // 5, appendChild - add element at end
 // eg 1
 var append = document.querySelector("ul"); // select ul element
-var li = document.createElement("li");  // create element
+var li = document.createElement("li"); // create element
 li.textContent = "new element"; // add text to element
 append.appendChild(li); // add element at end
 // eg 2
 var append1 = document.querySelector("ul"); // select ul element
-var div = document.createElement("div");  // create element
+var div = document.createElement("div"); // create element
 div.textContent = "new element"; // add text to element
 append1.appendChild(div); // add element at end
 
@@ -490,19 +493,19 @@ append1.appendChild(div); // add element at end
 // eg 2
 var remove1 = document.querySelector("ul"); // select ul element
 var remove2 = document.querySelector("li"); // select li element
-remove1.removeChild(remove2); // remove shivam element 
+remove1.removeChild(remove2); // remove shivam element
 
 // 7. replace
 // eg 1
 var replace = document.querySelector("ul"); // select ul element
-var li1 = document.createElement("li");  // create element
+var li1 = document.createElement("li"); // create element
 li1.textContent = "new element"; // add text to element
-replace.replaceChild(li1,document.querySelector("li").nextElementSibling); // replace element
+replace.replaceChild(li1, document.querySelector("li").nextElementSibling); // replace element
 // eg 2
 var replace1 = document.querySelector("ul"); // select ul element
-var li2 = document.createElement("li");  // create element
+var li2 = document.createElement("li"); // create element
 li2.textContent = "new element"; // add text to element
-replace1.replaceChild(li2,document.querySelector("li")); // replace element
+replace1.replaceChild(li2, document.querySelector("li")); // replace element
 
 // 8. parent node
 // eg1
@@ -510,9 +513,9 @@ var parent1 = document.querySelector("li");
 var p1 = parent1.parentNode;
 console.log(p1);
 // eg 2
-var parent2 = document.querySelector("html"); 
-var p2 = parent2.parentNode; // will never give null 
-console.log(p2); 
+var parent2 = document.querySelector("html");
+var p2 = parent2.parentNode; // will never give null
+console.log(p2);
 
 // 9. previousSibling - return previous sibling node
 var previousSibling = document.querySelector("li");
@@ -543,21 +546,21 @@ console.log(innerHTML.innerHTML);
 var outerHTML = document.querySelector("li");
 outerHTML.outerHTML = "<b>new element</b>"; // change outer html of element
 console.log(outerHTML.outerHTML);
-// so we can see that after using outerhtml element is removed as list(li) and got replaced by b tag 
+// so we can see that after using outerhtml element is removed as list(li) and got replaced by b tag
 var child1 = document.querySelector("ul");
 var c11 = child1.children;
-console.log(c11)
+console.log(c11);
 // to get back as list we have to write it in li tag again
 var outerHTML1 = document.querySelector("li");
 outerHTML1.outerHTML = "<li><b>new element</b></li>"; // change outer html of element
 console.log(outerHTML1.outerHTML);
 var child1 = document.querySelector("ul");
 var c11 = child1.children;
-console.log(c11)
+console.log(c11);
 
 // 15. textContent - return text content of element
 var textContent = document.querySelector("h2").textContent;
-console.log(textContent); // will give all text irrespective of being displayed on screen or not 
+console.log(textContent); // will give all text irrespective of being displayed on screen or not
 
 // 16. innerText - return inner text of element
 var innerText = document.querySelector("h2").innerText;
@@ -567,19 +570,31 @@ console.log(innerText); // will give only text which is displayed on screen
 var insertAdjacentElement = document.querySelector(".shivam");
 var newE = document.createElement("div");
 newE.textContent = "new element of insertAdjacentElement ";
-insertAdjacentElement.insertAdjacentElement("beforebegin",newE); // add element before element
-insertAdjacentElement.insertAdjacentElement("afterbegin",newE); // add element at start of element
-insertAdjacentElement.insertAdjacentElement("beforeend",newE); // add element at end of element
-insertAdjacentElement.insertAdjacentElement("afterend",newE); // add element after element
+insertAdjacentElement.insertAdjacentElement("beforebegin", newE); // add element before element
+insertAdjacentElement.insertAdjacentElement("afterbegin", newE); // add element at start of element
+insertAdjacentElement.insertAdjacentElement("beforeend", newE); // add element at end of element
+insertAdjacentElement.insertAdjacentElement("afterend", newE); // add element after element
 
 // 18. insertAdjacentHTML - add html at specific position
 var insertAdjacentHTML = document.querySelector(".shivam");
-insertAdjacentHTML.insertAdjacentHTML("beforebegin","<div><b>new element</b></div>"); // add html before element
-insertAdjacentHTML.insertAdjacentHTML("afterbegin","<div><b>new element</b></div>"); // add html at start of element
-insertAdjacentHTML.insertAdjacentHTML("beforeend","<div><b>new element</b></div>"); // add html at end of element
-insertAdjacentHTML.insertAdjacentHTML("afterend","<div><b>new element</b></div>"); // add html after element
+insertAdjacentHTML.insertAdjacentHTML(
+  "beforebegin",
+  "<div><b>new element</b></div>"
+); // add html before element
+insertAdjacentHTML.insertAdjacentHTML(
+  "afterbegin",
+  "<div><b>new element</b></div>"
+); // add html at start of element
+insertAdjacentHTML.insertAdjacentHTML(
+  "beforeend",
+  "<div><b>new element</b></div>"
+); // add html at end of element
+insertAdjacentHTML.insertAdjacentHTML(
+  "afterend",
+  "<div><b>new element</b></div>"
+); // add html after element
 
-19. // styling
+19; // styling
 document.body.style.backgroundColor = "red"; // change background color of body
 document.body.style.color = "white"; // change color of body
 document.body.style.fontSize = "20px"; // change font size of body
@@ -599,7 +614,7 @@ document.body.style.flexGrow = "1"; // change flex grow of body
 document.body.style.flexShrink = "1"; // change flex shrink of body
 document.body.style.flexBasis = "100px"; // change flex basis of body
 document.body.style.alignSelf = "center"; // change align self of body
-document.body.style.position = "relative"; // change position of body 
+document.body.style.position = "relative"; // change position of body
 document.body.style.top = "50px"; // change top of body
 document.body.style.left = "50px"; // change left of body
 document.body.style.right = "50px"; // change right of body
@@ -609,10 +624,243 @@ document.body.style.bottom = "50px"; // change bottom of body
 let abc = document.querySelector("#abc");
 console.log(abc.getAttribute("about")); // get about attribute
 console.log(abc.getAttribute("class")); // get class attribute
-abc.setAttribute("class","shivam"); // set class attribute
+abc.setAttribute("class", "shivam"); // set class attribute
 console.log(abc.getAttribute("class")); // get class attribute
 console.log(abc.outerHTML); // get outer html of element
 for (const att of abc.attributes) {
   console.log(att.name + " " + att.value); // get all attributes of element
 }
 
+// js interview problems practice
+
+console.log("hello world");
+
+for (let i = 0; i < 5; i++) {
+  console.log(i + 1);
+}
+
+let add_func = (a, b) => {
+  return a + b;
+};
+console.log(add_func(2, 3));
+
+let area = (a, b) => {
+  return a * b;
+};
+console.log(area(2, 3));
+
+let strQues = "hello world";
+function reverseString(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseString(strQues));
+
+function evenOdd(a) {
+  if (a % 2 == 0) {
+    return "even";
+  } else {
+    return "odd";
+  }
+}
+console.log(evenOdd(5));
+
+function leapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return "leap year";
+  } else {
+    return "not leap year";
+  }
+}
+console.log(leapYear(2020));
+
+let sumAll = (a, b) => {
+  let sum = 0;
+  for (let i = a; i <= b; i++) {
+    sum += i;
+  }
+  return sum;
+};
+console.log(sumAll(1, 5));
+
+let car = {
+  make: "audi",
+  model: "A4",
+  year: 2020,
+};
+car.startEngine = function () {
+  return "engine started";
+};
+console.log(car.startEngine());
+console.log(car);
+
+let paraChange = document.getElementsByClassName("helooooooo");
+paraChange.textContent = "hello world my name is shivam goel";
+
+function factorial(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}
+console.log(factorial(5));
+
+function getRandomNumber(min, max) {
+  console.log(Math.floor(Math.random() * (max - min + 1)) + min);
+  return Math.random();
+}
+
+console.log(getRandomNumber(1, 10));
+
+let arrEg = [1, 2, 3, 5, 1, 34, 6, 3, 4, 5];
+
+function onlyEvenUsinfHigherOrder(arr) {
+  return arr.filter((value) => value % 2 === 0);
+}
+console.log(onlyEvenUsinfHigherOrder(arrEg));
+
+function doubleAllUsingHigherOrder(arr) {
+  return arr.map((value) => value * 2);
+}
+console.log(doubleAllUsingHigherOrder(arrEg));
+console.log(arrEg);
+
+function largestUsingHigherOrder(arr) {
+  return arr.reduce((acc, value) => {
+    if (acc < value) {
+      acc = value;
+    }
+    return acc;
+  });
+}
+console.log(largestUsingHigherOrder(arrEg));
+
+function removeDuplicateUsingHigherOrder(arr) {
+  return arr.filter((value, index) => arr.indexOf(value) === index);
+}
+console.log(removeDuplicateUsingHigherOrder(arrEg));
+
+function removeSpecificElementUsingHigherOrder(arr, ele) {
+  return arr.filter((value) => value !== ele);
+}
+console.log(removeSpecificElementUsingHigherOrder(arrEg, 5));
+
+function dateAndTime() {
+  let date = new Date();
+  return date;
+}
+console.log(dateAndTime());
+
+function dateAndTimeInSpecificFormat() {
+  let date = new Date();
+  console.log(date.toLocaleString());
+
+  return date.toDateString();
+}
+console.log(dateAndTimeInSpecificFormat());
+
+// function errorAPIDataFetchTryCatch () {
+//   try {
+//     fetch("https://jsonplaceholder.typicode.com/todos")
+//     .then((response) => response.json())
+//     .then((data) => console.log(data));
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// errorAPIDataFetchTryCatch();
+
+// function errorAPIDataFetchAsyncAwait () {
+//   async function fetchData() {
+//     try {
+//       let response = await fetch("https://jsonplaceholder.typicode.com/todos");
+//       let data = await response.json();
+//       console.log(data);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   }
+//   fetchData();
+// }
+// errorAPIDataFetchAsyncAwait();
+
+function factorialRecursion(n) {
+  if (n === 0 || n === 1) {
+    return 1;
+  } else {
+    return n * factorialRecursion(n - 1);
+  }
+}
+console.log(factorialRecursion(5));
+
+function fibbonaciRecursion(n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    return fibbonaciRecursion(n - 1) + fibbonaciRecursion(n - 2);
+  }
+}
+console.log(fibbonaciRecursion(5));
+
+function createCounter() {
+  let counter = 0;
+  return function () {
+    return counter++;
+  };
+}
+let counter = createCounter();
+console.log(counter());
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+function privateVariableClosure() { 
+  let privateVariable = "private  variable";
+  return function () {
+    return privateVariable;
+  };
+}
+let privateVariable = privateVariableClosure();
+console.log(privateVariable());
+
+function multipleAPIusingCallback(callback) {
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => response.json())
+    .then((data) => callback(data));
+}
+function callback(data) {
+  console.log(data);
+}
+multipleAPIusingCallback(callback);
+
+function multipleAPIusingPromise() {
+  fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+}
+multipleAPIusingPromise();
+
+function multipleAPIusingAsyncAwait() {
+  async function fetchData() {
+    let response = await fetch("https://jsonplaceholder.typicode.com/todos");
+    let data = await response.json();
+    console.log(data);
+  }
+  fetchData();
+}
+multipleAPIusingAsyncAwait();
+
+function multipleImagesUsingPromise() {
+  fetch("https://jsonplaceholder.typicode.com/photos")
+    .then((response) => response.json())
+    .then((data) => {
+      for (let i = 0; i < 10; i++) {
+        let img = document.createElement("img");
+        img.src = data[i].url;
+        document.body.appendChild(img);
+      }
+    });
+}
+multipleImagesUsingPromise();
